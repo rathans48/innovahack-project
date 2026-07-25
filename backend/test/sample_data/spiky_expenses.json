@@ -1,0 +1,23 @@
+{
+  "company_name": "Spike Alert LLC",
+  "currency": "USD",
+  "transactions": [
+    { "date": "2025-11-02", "description": "Client Retainer", "amount": 20000.0, "category": "Revenue" },
+    { "date": "2025-11-05", "description": "Office Rent", "amount": -4000.0, "category": "Rent" },
+    { "date": "2025-11-15", "description": "Payroll", "amount": -8000.0, "category": "Payroll" },
+    { "date": "2025-11-20", "description": "AWS Hosting", "amount": -2000.0, "category": "Software/Cloud" },
+    { "date": "2025-11-25", "description": "Internet", "amount": -200.0, "category": "Utilities" },
+    
+    { "date": "2025-12-02", "description": "Client Retainer", "amount": 20000.0, "category": "Revenue" },
+    { "date": "2025-12-05", "description": "Office Rent", "amount": -4000.0, "category": "Rent" },
+    { "date": "2025-12-15", "description": "Payroll", "amount": -8000.0, "category": "Payroll" },
+    { "date": "2025-12-20", "description": "AWS Hosting", "amount": -2100.0, "category": "Software/Cloud" },
+    { "date": "2025-12-25", "description": "Internet", "amount": -200.0, "category": "Utilities" },
+    
+    { "date": "2026-01-02", "description": "Client Retainer", "amount": 20000.0, "category": "Revenue" },
+    { "date": "2026-01-05", "description": "Office Rent", "amount": -4000.0, "category": "Rent" },
+    { "date": "2026-01-15", "description": "Payroll", "amount": -8000.0, "category": "Payroll" },
+    { "date": "2026-01-20", "description": "AWS Hosting & Annual DB License", "amount": -6500.0, "category": "Software/Cloud" },
+    { "date": "2026-01-25", "description": "Internet", "amount": -200.0, "category": "Utilities" }
+  ]
+}
