@@ -10,8 +10,8 @@ Built in 24 hours for InnovaHack Chapter 1.
 
 ## 🔗 Live Demo
 
-- **Frontend:** https://smb-pulse-frontend.vercel.app
-- **Backend API:** https://smb-pulse-backend.onrender.com
+- **Frontend:** [https://smb-pulse-frontend.vercel.app](https://rathans48-innovahack-project-smb.vercel.app/)
+- **Backend API:** [https://smb-pulse-backend.onrender.com](https://smb-pulse.onrender.com)
 
 > ⚠️ **Note on cold starts:** the backend runs on Render's free tier, which spins down after 15 minutes of inactivity. The **first** request after idle time can take up to ~60 seconds to wake the server back up — the frontend shows a "waking up the server" message during this window, and the request will not time out (timeout is set to 90s). Subsequent requests are fast (~3-5 seconds). Please allow the first load a moment before assuming something's broken.
 
