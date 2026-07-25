@@ -4,7 +4,7 @@
 
 Upload a bank statement CSV and get instant, plain-English financial insights: burn rate, runway, expense breakdown, anomaly detection, and AI-generated advisory — no login, no database, fully session-based.
 
-Built in 24 hours for [Hackathon Name].
+Built in 24 hours for InnovaHack Chapter 1.
 
 ---
 
