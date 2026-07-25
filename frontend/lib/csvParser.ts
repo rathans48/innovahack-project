@@ -45,17 +45,48 @@ function findColumn(headers: string[], aliases: string[]): string | null {
 function parseDate(value: string): string {
   const cleaned = value.trim().replace(/[/]/g, "-");
   const parts = cleaned.split(/[-T]/);
+
   if (parts.length >= 3) {
-    const year = parts[0].length === 4 ? parts[0] : parts[2];
-    const month = parts[1].padStart(2, "0");
-    const day = parts[0].length === 4 ? parts[1] : parts[0];
-    return `${year}-${month}-${day.padStart(2, "0")}`;
+    // ISO format: YYYY-MM-DD
+    if (parts[0].length === 4) {
+      const year = parts[0];
+      const month = parts[1].padStart(2, "0");
+      const day = parts[2].padStart(2, "0");
+      assertValidDate(year, month, day, value);
+      return `${year}-${month}-${day}`;
+    }
+
+    // Ambiguous DD/MM/YYYY vs MM/DD/YYYY — disambiguate using the >12 rule
+    const first = parseInt(parts[0], 10);
+    const second = parseInt(parts[1], 10);
+    const year = parts[2];
+
+    let day: number, month: number;
+    if (first > 12 && second <= 12) {
+      day = first; month = second;             // must be DD-MM
+    } else if (second > 12 && first <= 12) {
+      day = second; month = first;             // must be MM-DD
+    } else {
+      day = first; month = second;             // genuinely ambiguous — default DD-MM
+    }
+
+    const monthStr = String(month).padStart(2, "0");
+    const dayStr = String(day).padStart(2, "0");
+    assertValidDate(year, monthStr, dayStr, value);
+    return `${year}-${monthStr}-${dayStr}`;
   }
+
   const date = new Date(cleaned);
-  if (isNaN(date.getTime())) {
-    throw new Error(`Invalid date: ${value}`);
-  }
+  if (isNaN(date.getTime())) throw new Error(`Invalid date: ${value}`);
   return date.toISOString().split("T")[0];
+}
+
+function assertValidDate(year: string, month: string, day: string, original: string): void {
+  const m = parseInt(month, 10);
+  const d = parseInt(day, 10);
+  if (m < 1 || m > 12 || d < 1 || d > 31) {
+    throw new Error(`Invalid date: "${original}" resolved to an impossible date (${year}-${month}-${day})`);
+  }
 }
 
 function parseAmount(value: string): number {

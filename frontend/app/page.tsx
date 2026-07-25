@@ -64,6 +64,9 @@ export default function Home() {
 
       {loading ? (
         <div className="space-y-4 max-w-2xl mx-auto">
+          <p className="text-sm text-gray-500 dark:text-gray-400 animate-pulse">
+            Analyzing your data... this may take up to a minute on first load. Free-tier hosting.
+          </p>
           <LoadingSkeleton className="h-12 w-full" />
           <LoadingSkeleton className="h-48 w-full" />
         </div>

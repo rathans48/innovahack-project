@@ -13,7 +13,7 @@ export default function MetricSummaryCards({
 }: MetricSummaryCardsProps) {
   const runwayDisplay =
     metrics.runway_days === null
-      ? "N/A"
+      ? "Healthy"
       : metrics.runway_days <= 0
       ? "Critical"
       : `${metrics.runway_days} days`;
